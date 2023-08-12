@@ -1,0 +1,31 @@
+.login_form_container{
+    padding: 3rem ; 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;  
+} 
+.login_form_container input{
+    padding-left: 1rem;
+    width: 100%;
+}
+.btn_login_form {
+    width: 100%;
+}
+.car_cotainer_form {
+    margin-top: 3rem;
+}
+.form_item {
+    width: 100%;
+}
+
+.register_form_container {
+    padding: 0rem 3rem 3rem 3rem;
+}
+.form_register_item {
+    width: 60%;
+    
+}
+.btn_register_form {
+    width: 60%;
+}

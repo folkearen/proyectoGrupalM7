@@ -1,0 +1,22 @@
+{% extends 'store/layout/base.html' %}
+{% block title %}Registro{% endblock title %}
+{% block main%}
+    <div class="card car_cotainer_form border-0">
+      <form action="" method='POST' class="mx-auto login_form_container  register_form_container">
+        {% csrf_token %}
+        {% if errors %}
+          {% for field, error_list in errors.items  %}
+            {{ error_list }}
+          {% endfor %}
+        {% endif %}
+        <h4 class="card-title">Regístrate</h4>
+        <div class="mb-3 d-block form_register_item">
+          {{ form.as_p }}
+        </div>
+        <button type='submit' class='btn_register_form btn btn-sm btn-primary'>Registrate</button> 
+        <a href=" {% url 'login' %} " class="card-link d-block text-center w-100 mt-2">¿Tienes cuenta? Inicia sesión</a>
+      </form>
+
+    </div>
+
+{% endblock main %}
