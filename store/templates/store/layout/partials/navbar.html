@@ -1,32 +1,55 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img class="logo" src=" {% static 'store/img/logo.svg' %} " alt="logo"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Productos</a>
-            </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column pt-0 ">
+  <div class='mini_banner'>
+    
+  </div>
+    <div class="container-fluid navbar_custom d-flex">
+      <div class='permanent'>
+        <div class='d-flex'>
+          <a class="navbar-brand me-4" href=" {% url 'home' %} "><img class="logo" src=" {% static 'store/img/logoTeLoVendo.png' %} " alt="logo"></a>
+          <form class="d-none d-md-flex form_search_navbar">
+            <input class="input_search" type="search" placeholder="¿Qué necesitas?" aria-label="Search">
+            <button class="btn " type="submit"><img class='navbar_icon' src=" {% static 'store/img/searchIcon.svg' %} " alt=""></button>
+          </form class='form_search'>
+        </div>
+        <div class="d-flex align-items-center justify-content-end">
+         
             {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Salir</a>
-            </li>
+                <span class="welcome d-flex flex-column">
+                  <p>Bienvenido</p>
+                  <p>{{user.first_name}}</p>
+                </span>
+                <a class="nav-link" href="{% url 'profile' %}">
+                  <img  class='navbar_icon ms-2 me-1' src=" {% static 'store/img/user.svg' %} " alt="">
+                </a> 
             {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
-            </li>
-            <li>
-                <a class="nav-link" href="{% url 'register' %}">Registrase</a>
-            </li>
+                <a class="nav-link" href="{% url 'login' %}"><img  class='navbar_icon ms-3 me-1' src=" {% static 'store/img/user.svg' %} " alt=""></a>
             {% endif %}
-        </ul>
+            <button class='bag_navbar me-4 '>
+              <img class="navbar_icon" src="{% static 'store/img/bagIcon.svg' %}" alt="">
+              <span>0</span>  
+            </button>
+          
+            <button class='d-md-none  menu_button' type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span>
+                <img class="navbar_icon" src="{% static 'store/img/menuIcon.svg' %}" alt="">
+              </span>
+            </button>
+        </div>
+      </div>
+
+      <div class="collapse navbar-collapse collapse_custom" id="navbarNav">
+        <form class="d-flex d-md-none form_search_navbar">
+          <input class="input_search" type="search" placeholder="¿Qué necesitas?" aria-label="Search">
+          <button class="btn " type="submit"><img class='navbar_icon' src=" {% static 'store/img/searchIcon.svg' %} " alt=""></button>
+        </form class='form_search'>
+        <div class='category_container'>
+          {% for category in categories  %}
+            <a class="category_navbar" href=" {% url 'home' category.slug %}">{{category.category_name}}</a> 
+          {% endfor %}
+        </div>
+
       </div>
     </div>
   </nav>

@@ -1,0 +1,9 @@
+{% extends 'store/layout/base.html' %}
+
+{% block title %}¡Hola! {{ user.first_name }}{% endblock title %} 
+{% block main %}
+    {% comment %} <img class="profile_image" src="{{user.profile.image}}" alt=""> {% endcomment %}
+
+    <h1>Tu perfil {{user.first_name}}</h1> 
+    <a href=" {% url 'logout' %}"> Logout</a>
+{% endblock main %}
