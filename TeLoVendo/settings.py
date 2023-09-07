@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     #my app
     'user_manager.apps.UserManagerConfig',
     'store.apps.StoreConfig',
-    'category.apps.CategoryConfig'
+    'category.apps.CategoryConfig',
+    'cartt.apps.CarttConfig'
 ]
 
 MIDDLEWARE = [
