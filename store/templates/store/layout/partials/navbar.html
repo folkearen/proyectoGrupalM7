@@ -8,10 +8,10 @@
       <div class='permanent'>
         <div class='d-flex'>
           <a class="navbar-brand me-4" href=" {% url 'home' %} "><img class="logo" src=" {% static 'store/img/logoTeLoVendo.png' %} " alt="logo"></a>
-          <form class="d-none d-md-flex form_search_navbar">
-            <input class="input_search" type="search" placeholder="¿Qué necesitas?" aria-label="Search">
+          <form method="GET" action="{% url 'home' %} " class="d-none d-md-flex form_search_navbar" >
+            <input type="search" name="buscar" placeholder="¿Qué necesitas?" aria-label="Search" value="{{ busqueda }}" class="input_search">
             <button class="btn " type="submit"><img class='navbar_icon' src=" {% static 'store/img/searchIcon.svg' %} " alt=""></button>
-          </form class='form_search'>
+        </form>
         </div>
         <div class="d-flex align-items-center justify-content-end">
          
@@ -45,6 +45,7 @@
           <button class="btn " type="submit"><img class='navbar_icon' src=" {% static 'store/img/searchIcon.svg' %} " alt=""></button>
         </form class='form_search'>
         <div class='category_container'>
+          <a class="category_navbar" href=" {% url 'home' %}">Todos</a> 
           {% for category in categories  %}
             <a class="category_navbar" href=" {% url 'home' category.slug %}">{{category.category_name}}</a> 
           {% endfor %}

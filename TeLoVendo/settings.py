@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'TeLoVendo.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "db_te_lo_vendo",
+        "NAME": "telovendo",
         "USER": "postgres",
         "PASSWORD": "root",
         "HOST": "127.0.0.1",
