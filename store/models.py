@@ -15,3 +15,7 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.product_name
+    
+    @property
+    def formateo_price(self):
+        return "${:,.0f}".format(self.price).replace(',', '.')

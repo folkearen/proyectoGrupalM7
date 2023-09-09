@@ -3,14 +3,17 @@
 {% block title %}Detalles del Producto{% endblock title %} 
 
 {% block main %}
-    <div class="container">
-        <h1>Detalles del Producto</h1>
-        <div class="product-details">
-            <img src="{{ product.images.url }}" alt="">
-            <h2>{{ product.product_name }}</h2>
-            <p>{{ product.product_description }}</p>
-            <p>Precio: ${{ product.price }}</p>
-            <!-- Agrega más detalles del producto si es necesario -->
+<div class="container product-details-container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.images.url }}" alt="Imagen del producto" class="product-image">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ product.product_name }}</h1>
+            <p class="product-description">{{ product.product_description }}</p>
+            <p class="product-price">Precio: {{ product.formateo_price}}</p>
+            <button class="btn btn-primary">Agregar al carrito</button>
         </div>
     </div>
+</div>
 {% endblock main %}
